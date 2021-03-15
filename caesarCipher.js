@@ -15,15 +15,15 @@ const caesarCipher = (str, shift = 0) => {
     // get the current index
     let currIdx = alphabetArr.indexOf(currChar);
 
+    // check for characters that are not letters or whitespaces
+    if (currIdx === -1) return '';
+
     // add shift to currIdx for the shifted index
     let shiftIdx = currIdx + shift;
 
     // check for large shift values
     if (shiftIdx > 25) shiftIdx = (shiftIdx % 26) - 26;
     if (shiftIdx < 0) shiftIdx = (shiftIdx % 26) + 26;
-
-    // check for characters that are not letters or whitespaces
-    if (currIdx === -1) return '';
 
     // wrap around for large shift inputs
     if (shiftIdx > 25) shiftIdx -= 26;
